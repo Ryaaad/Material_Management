@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Member{
+  memberId Int @id @default(autoincrement())
+  firstName String 
+  lastName String
+  img String?
+  discord String
+  Tel String
+  Borrows Borrows[]
+  returns returns[]
+}
+
+model Material{
+  name String @id
+  type String
+  img String?
+  qte Int
+  Borrowed Borrows[]
+  returns returns[]
+}
+
+model Borrows{
+  dateB DateTime @default(now())
+  qte Int
+  materialName String 
+  material Material @relation(fields: [materialName],references: [name])
+  memberId Int
+  member Member @relation(fields: [memberId],references: [memberId])
+  @@id([materialName,memberId])
+}
+
+model returns{
+  dateR DateTime @default(now())
+  qte Int
+  materialName String 
+  material Material @relation(fields: [materialName],references: [name])
+  memberId Int
+  member Member @relation(fields: [memberId],references: [memberId])
+  @@id([materialName,memberId])
+}
+
