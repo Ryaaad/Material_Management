@@ -7,6 +7,7 @@ export async function getAllMembers(_req,res){
         return res.status(200).json({status:200,data:Members})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -34,6 +35,7 @@ export async function createMember(_req,res){
         return res.status(201).json({status:201,data:Member})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -44,6 +46,9 @@ export async function getMember(_req,res){
         const Member=await prisma.Member.findUnique({
             where:{
                 memberId:id
+            },
+            include:{
+                Borrows:true
             }
         })
         if(!Member){
@@ -52,6 +57,7 @@ export async function getMember(_req,res){
         return res.status(200).json({status:200,data:Member})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -75,6 +81,7 @@ export async function deleteMember(_req,res){
         return res.status(204).json({status:204})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -117,6 +124,7 @@ export async function UpdateMember(_req,res){
         return res.status(200).json({status:200,data:updatedMember})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }

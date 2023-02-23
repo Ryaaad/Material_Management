@@ -31,22 +31,22 @@ model Material{
 }
 
 model Borrows{
+  numBorrow Int @id @default(autoincrement())
   dateB DateTime @default(now())
   qte Int
   materialName String 
-  material Material @relation(fields: [materialName],references: [name])
+  material Material @relation(fields: [materialName],references: [name],onDelete: Cascade)
   memberId Int
-  member Member @relation(fields: [memberId],references: [memberId])
-  @@id([materialName,memberId])
+  member Member @relation(fields: [memberId],references: [memberId],onDelete: Cascade)
 }
 
 model returns{
+  numReturns Int @id @default(autoincrement())
   dateR DateTime @default(now())
   qte Int
   materialName String 
-  material Material @relation(fields: [materialName],references: [name])
+  material Material @relation(fields: [materialName],references: [name],onDelete: Cascade)
   memberId Int
-  member Member @relation(fields: [memberId],references: [memberId])
-  @@id([materialName,memberId])
+  member Member @relation(fields: [memberId],references: [memberId],onDelete: Cascade)
 }
 

@@ -7,6 +7,7 @@ export async function getAllMaterials(_req,res){
         return res.status(200).json({status:200,data:Materials})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -34,6 +35,7 @@ export async function createMaterial(_req,res){
         return res.status(201).json({status:200,data:Material})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -44,6 +46,9 @@ export async function getMaterial(_req,res){
         const Material=await prisma.Material.findUnique({
             where:{
                 name:id
+            },
+            include:{
+                Borrowed:true
             }
         })
         if(!Material){
@@ -52,6 +57,7 @@ export async function getMaterial(_req,res){
         return res.status(200).json({status:200,data:Material})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -75,6 +81,7 @@ export async function deleteMaterial(_req,res){
         return res.status(204).json({status:200})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
@@ -117,6 +124,7 @@ export async function UpdateMaterial(_req,res){
         return res.status(200).json({status:200,data:updatedMaterial})
     }
     catch(err){
+        console.log(err)
         return res.status(500).json({status:500,message:"an error occurred"})
     }
 }
