@@ -10,7 +10,7 @@ import { BiChevronUp,BiChevronDown } from "react-icons/bi";
 import { useState } from 'react';
 import CardMato from '@/components/CardMato';
 import Pagination from '@/components/Pagination';
-import AddMember from '@/components/AddMember'
+import AddMato from '@/components/AddMato'
 const Material = () => {
     const [FilterClicked, setFilterClicked] = useState(false)
     const [Add, setAdd] = useState(false)
@@ -109,7 +109,7 @@ const Material = () => {
     <Navbar Element='Mato'></Navbar> 
 
     { Add &&    <div className="fixed top-0 left-0 bottom-0 right-0 w-full grid place-content-center z-10 h-[100vh] bg-[#00000045]">
-            <AddMember setAdd={setAdd}></AddMember>
+            <AddMato setAdd={setAdd}></AddMato>
               </div>
                   }
     <main className='w-full bg-[#1976D226] '>
