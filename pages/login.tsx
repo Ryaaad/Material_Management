@@ -2,11 +2,9 @@ import Robot from '../public/Robot_login.png'
 import G from '../public/google.jpg'
 import Image from 'next/image'
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
 
 const LogIn = () => {
     return ( <>
-      {/* <Navbar Element='Mato'></Navbar> */}
         <div  className="bg-[#E5F5FE] h-[100vh] w-full grid justify-center items-center text-center font-['Lato'] " >
           <div className="flex gap-5">
           <Image alt='Robot Image' src={Robot} className=" h-[525px] w-[400px]   "></Image>
