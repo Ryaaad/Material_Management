@@ -12,10 +12,10 @@ module.exports = {
     extend: {},
     screens: {
       'xs': {'max': '500px'},
-      'sm': {'max': '640px'},
-      'md': {'max': '768px'},
-      'lg': {'max': '1024px'},
-      'xl': {'max': '1280px'},
+      'sm': {'max': '640px',"min":"501px"},
+      'md': {'max': '768px',"min":"639px"},
+      'lg': {'max': '1024px',"min":"767px"},
+      'xl': {'max': '1280px'},"min":"1023px",
       // => @media (min-width: 640px) { ... }
     },
 

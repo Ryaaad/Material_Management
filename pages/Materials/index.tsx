@@ -2,14 +2,19 @@ import Search from '../../public/Search.png'
 import Bg from '../../public/MaterialBg.png'
 import Image from 'next/image'
 import Robot from '../../public/Robot2.png'
+import Robot1 from '../../public/Robot.png'
+import Robot2 from '../../public/Robot_login.png'
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { BiChevronUp,BiChevronDown } from "react-icons/bi";
 import { useState } from 'react';
 import CardMato from '@/components/CardMato';
 import Pagination from '@/components/Pagination';
+import AddMember from '@/components/AddMember'
 const Material = () => {
-    const [FilterClicked, setFilterClicked] = useState<any>(false)
+    const [FilterClicked, setFilterClicked] = useState(false)
+    const [Add, setAdd] = useState(false)
+    
     const ClickHandel=()=>{
         setFilterClicked((prev: boolean)=>prev=!prev)
     }
@@ -94,8 +99,6 @@ const Material = () => {
                             qte:15,
                             },
     ]
-
-
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(8);
     const lastPostIndex = currentPage * postsPerPage;
@@ -104,6 +107,11 @@ const Material = () => {
     return ( 
     <>
     <Navbar Element='Mato'></Navbar> 
+
+    { Add &&    <div className="fixed top-0 left-0 bottom-0 right-0 w-full grid place-content-center z-10 h-[100vh] bg-[#00000045]">
+            <AddMember setAdd={setAdd}></AddMember>
+              </div>
+                  }
     <main className='w-full bg-[#1976D226] '>
     <div style={{backgroundImage:`url(${Bg.src})`}}  className='w-full bg-cover h-[50vh] bg-center relative flex flex-col justify-center py-4 pt-7 gap-8 ' >
         <h1 className='text-3xl text-white text-center' >Stop looking for a Material  - find it.</h1>
@@ -112,7 +120,7 @@ const Material = () => {
         <input type="text" placeholder='Search'  className=' pl-8 relative bg-white h-[55px] w-full  rounded-[10px] '/>
         <Image alt='search icone' src={Search}  className='absolute top-[50%] translate-y-[-50%] left-[1%] h-[20px] w-[20px] ' ></Image>
             </span>
-        <button className='bg-[#1976D2] text-white rounded-[10px] h-[55px] px-4 text-lg  ' > Add new Material </button>
+        <button className='bg-[#1976D2] text-white rounded-[10px] h-[55px] px-4 text-lg  ' onClick={()=>setAdd(true)} > Add new Material </button>
         </div>
     </div>    
     <div className="mt-6 ">
