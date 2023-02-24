@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Member{
-  memberId Int @id @default(autoincrement())
+  memberId String @id @map("_id") @default(auto()) @db.ObjectId
   firstName String 
   lastName String
   img String?
@@ -22,31 +22,44 @@ model Member{
 }
 
 model Material{
-  name String @id
+  name String @id @map("_id")
   type String
   img String?
   qte Int
+  qteMissing Int @default(0)
   Borrowed Borrows[]
   returns returns[]
 }
 
+enum Role{
+  Manager
+  Admin
+}
+model User{
+id String @id @default(auto()) @map("_id") @db.ObjectId
+Name String
+Email String
+password String
+role Role @default(Manager)
+}
 model Borrows{
-  numBorrow Int @id @default(autoincrement())
+  numBorrow String @id @map("_id") @default(auto()) @db.ObjectId
   dateB DateTime @default(now())
   qte Int
-  materialName String 
+  cause String
+  materialName String
   material Material @relation(fields: [materialName],references: [name],onDelete: Cascade)
-  memberId Int
+  memberId String @db.ObjectId
   member Member @relation(fields: [memberId],references: [memberId],onDelete: Cascade)
 }
 
 model returns{
-  numReturns Int @id @default(autoincrement())
+  numReturns String @id @map("_id") @default(auto()) @db.ObjectId
   dateR DateTime @default(now())
   qte Int
-  materialName String 
+  materialName String
   material Material @relation(fields: [materialName],references: [name],onDelete: Cascade)
-  memberId Int
+  memberId String @db.ObjectId
   member Member @relation(fields: [memberId],references: [memberId],onDelete: Cascade)
 }
 

@@ -1,6 +1,5 @@
-import prisma from "@/lib/prisma";
-
-
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 export async function getAllMembers(_req,res){
     try{
         const Members=await prisma.Member.findMany()
@@ -15,7 +14,7 @@ export async function getAllMembers(_req,res){
 export async function createMember(_req,res){
     try{
         const {firstName,lastName,discord,Tel,img} =_req.body
-        if(!firstName || !lastName || !discord|| !Tel) return res.status(400).json({status:400,message:"missing data"})
+        if(!firstName || !lastName || !discord || !Tel) return res.status(400).json({status:400,message:"missing data"})
         let Member
         if(!img){
              Member=await prisma.Member.create({
@@ -42,7 +41,7 @@ export async function createMember(_req,res){
 
 export async function getMember(_req,res){
     try{
-        const id= _req.query.id*1
+        const id= _req.query.id 
         const Member=await prisma.Member.findUnique({
             where:{
                 memberId:id
@@ -88,7 +87,7 @@ export async function deleteMember(_req,res){
 
 export async function UpdateMember(_req,res){
     try{
-        const id= _req.query.id*1
+        const id= _req.query.id 
         const {firstName,lastName,discord,Tel,img} =_req.body
         if(!firstName && !lastName && !discord && !Tel && !img) return res.status(400).json({status:400,message:"missing data"})
         const Member=await prisma.Member.findUnique({
