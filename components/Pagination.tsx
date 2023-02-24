@@ -29,7 +29,8 @@ const Pagination:React.FC<props>=(props)=> {
     <div  className='text-2xl bg-[#FFFFFF] border border-[#DDDDDD] rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer ' onClick={()=>prev()} >
  <MdKeyboardArrowLeft></MdKeyboardArrowLeft>
     </div>
- { props.currentPage==pages.length && <>
+{  props.currentPage>2 && <>
+    { props.currentPage==pages.length && <>
     <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `}  onClick={()=>Set(props.currentPage-2)} >
         {props.currentPage-2}
          </div> 
@@ -38,27 +39,36 @@ const Pagination:React.FC<props>=(props)=> {
  </div>       
  </>
 }
+</>
 
-{ props.currentPage==pages.length-1 &&  <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `} 
+}
+
+{ props.currentPage>2 && <>
+    { props.currentPage==pages.length-1 &&  <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `} 
 onClick={()=>Set(props.currentPage-2)} >
         {props.currentPage-2}
          </div> 
 }
+</>
+
+}
 {
     pages.map(page=>{
-      return  <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer 
+      return  <div key={page}  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer 
       ${page==props.currentPage ? "bg-[#1976D2] border-[#1976D2] text-white" : "bg-[#FFFFFF] border-[#DDDDDD]"} ${page>props.currentPage+2 && "hidden"} ${page<props.currentPage-1 && "hidden"} `} 
    onClick={()=>Set(page)}   >
         {page}
          </div> 
     })
 }
-  
-{ props.currentPage==1 &&  <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `}
-onClick={()=>Set(props.currentPage+3)} >
-        {props.currentPage+3}
-         </div> 
-}
+ { pages.length>3 && <>
+ 
+ { props.currentPage==1 && <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `}
+ onClick={()=>Set(props.currentPage+3)} >
+         {props.currentPage+3}
+          </div> 
+ }
+ </> }
 
     <div  className='text-2xl bg-[#FFFFFF] border border-[#DDDDDD] rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer ' onClick={()=>next()} >
     <MdKeyboardArrowRight></MdKeyboardArrowRight>

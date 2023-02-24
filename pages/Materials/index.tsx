@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import { BiChevronUp,BiChevronDown } from "react-icons/bi";
 import { useState } from 'react';
 import CardMato from '@/components/CardMato';
+import Pagination from '@/components/Pagination';
 const Material = () => {
     const [FilterClicked, setFilterClicked] = useState<any>(false)
     const ClickHandel=()=>{
@@ -21,11 +22,53 @@ const Material = () => {
         qte:5,
         },
         {
+            name :'arduino',
+            type:'MicroController',
+            img:'',
+            qte:5,
+            },
+            {
+                name :'arduino',
+                type:'MicroController',
+                img:'',
+                qte:5,
+                },
+                {
+                    name :'arduino',
+                    type:'MicroController',
+                    img:'',
+                    qte:5,
+                    },
+        {
          name :'Rasberypi',
             type:'MicroController',
             img:'',
             qte:15,
             },
+            {
+                name :'arduino',
+                type:'MicroController',
+                img:'',
+                qte:5,
+                },
+                {
+                 name :'Rasberypi',
+                    type:'MicroController',
+                    img:'',
+                    qte:15,
+                    },
+                    {
+                        name :'arduino',
+                        type:'MicroController',
+                        img:'',
+                        qte:5,
+                        },
+                        {
+                         name :'Rasberypi',
+                            type:'MicroController',
+                            img:'',
+                            qte:15,
+                            },           
             {
                 name :'Esp32',
                 type:'MicroController',
@@ -51,14 +94,18 @@ const Material = () => {
                             qte:15,
                             },
     ]
+
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(8);
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentPosts = Cards.slice(firstPostIndex, lastPostIndex);    
     return ( 
     <>
     <Navbar Element='Mato'></Navbar> 
     <main className='w-full bg-[#1976D226] '>
     <div style={{backgroundImage:`url(${Bg.src})`}}  className='w-full bg-cover h-[50vh] bg-center relative flex flex-col justify-center py-4 pt-7 gap-8 ' >
-        {/* <div  style={{background:`linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(10, 102, 194, 0.14) 37.83%)`}} 
-        className="bg absolute top-0 bottom-0 right-0 left-0 h-full w-full">
-        </div> */}
         <h1 className='text-3xl text-white text-center' >Stop looking for a Material  - find it.</h1>
         <div className="flex items-center gap-3 justify-center">
             <span className='relative  w-[60%] '>
@@ -79,12 +126,18 @@ const Material = () => {
             </div>
         </div>
         <div className="grid grid-cols-[repeat(4,220px)] gap-12 p-6 justify-center  ">
-        {Cards.map(card=>{
-            return <CardMato key={card.name} {...card} ></CardMato >
+        {currentPosts.map(card=>{
+            return <CardMato key={Math.random()} {...card} ></CardMato >
         })}
         </div>
-        <div className="flex mt-8 p-3 px-5">
+        <div className="flex  justify-between mt-8 p-5 px-6 items-center">
             <Image alt='' src={Robot}  className='w-[90px] h-[130px] ' ></Image>
+            <Pagination 
+           totalPosts={Cards.length}
+           postsPerPage={postsPerPage}
+           setCurrentPage={setCurrentPage}
+           currentPage={currentPage}
+         />
         </div>
     </div>
     </main>
