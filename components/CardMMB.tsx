@@ -1,4 +1,4 @@
-import Esp32 from '../public/Esp32.jpg'
+import User from '../public/User.png'
 import Image from 'next/image'
 import Link from 'next/link';
 import { SiDiscord } from "react-icons/si";
@@ -15,9 +15,8 @@ const CardMMB:React.FC<props> = (props) => {
     return ( 
         <div  className="bg-[#1976D226] flex flex-col justify-center items-center rounded-[5px] gap-4 py-4 " >
             <div  className='relative' >
-                <div className="rounded-full h-[120px] w-[120px] bg-black "   ></div>
-            {/* <Image alt='' src={Esp32}  className="rounded-full h-[135px] w-[135px] " ></Image> */}
-            <Link href={`https://discord.com/users/${props.discord}`} target='_blank'  className='text-xl text-[#5865F2] absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-[40%] rounded-full bg-white p-2 cursor-pointer ' >
+            <Image alt='' src={User}  className="rounded-full h-[110px] w-[110px]" ></Image>
+            <Link href={`https://discord.com/users/${props.discord}`} target='_blank'  className='text-xl text-[#5865F2] absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-[25%] rounded-full bg-white p-2 cursor-pointer ' >
             <SiDiscord ></SiDiscord>
             </Link >
             </div>
