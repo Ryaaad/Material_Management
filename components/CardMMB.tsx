@@ -23,7 +23,7 @@ const CardMMB:React.FC<props> = (props) => {
           <h2 className="text-lg font-semibold"> {props.firstName} {props.lastName}  </h2>
           <h3 className="text-lg text-[#5F6368]  "> Items Not returned : <span className='text-[#ff0008] font-semibold' > 2 </span></h3>
           <Link href={`/Members/${props.memberId}`}>    
-          <button  className='border-white border-[2px] rounded-[2px] p-2 px-3 text-[#3069FE] text-sm font-semibold hover:bg-[#1976d228] hover:text-black duration-500 ' >View details </button>
+          <button  className='border-white border-[2px] rounded-[5px] p-2 px-3 text-white bg-[#1976d2] text-sm font-semibold hover:bg-[#1976d228] hover:text-black duration-500 ' >View details </button>
             </Link>
        
         </div>

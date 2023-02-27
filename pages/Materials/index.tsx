@@ -213,7 +213,7 @@ const Material = () => {
               </div>
                   }
     <main className='w-full bg-[#1976D226] '>
-    <div style={{backgroundImage:`url(${Bg.src})`}}  className='w-full bg-cover h-[50vh] bg-center relative flex flex-col justify-center py-4 pt-7 gap-8 md:h-[42vh] sm:h-[38vh] xs:h-[30vh] xs:gap-5 ' >
+    <div style={{backgroundImage:`url(${Bg.src})`}}  className='w-full bg-cover h-[55vh] bg-center relative flex flex-col justify-center py-4 pt-7 gap-8 md:h-[47vh] sm:h-[42vh] xs:h-[38vh] xs:gap-5 ' >
         <h1 className='text-3xl text-white text-center md:text-2xl sm:text-xl xs:text-lg ' >Stop looking for a Material  - find it.</h1>
         <div className="flex items-center gap-3 justify-center sm:gap-2  xs:flex-col xs:items-center ">
             <span className='relative w-[60vw] md:w-[55vw] sm:w-[50vw] xs:w-[75vw] '>
@@ -234,13 +234,13 @@ const Material = () => {
          { FilterClicked ?   <BiChevronUp className=' text-2xl translate-y-[-5%] sm:text-lg'></BiChevronUp> :  <BiChevronDown className=' text-2xl translate-y-[-5%] sm:text-lg '></BiChevronDown>}
             </div>
         </div>
-        <div className="grid grid-cols-[repeat(4,220px)] gap-14 p-6 py-8 justify-center xl:gap-8 lg:gap-6 lg:px-4 lg:grid-cols-[repeat(3,220px)] md:gap-5 md:grid-cols-[repeat(3,190px)] sm:grid-cols-[repeat(2,200px)] 
+        <div className="grid grid-cols-[repeat(4,220px)] gap-14 p-6 py-7 pb-5 justify-center xl:gap-8 lg:gap-6 lg:px-4 lg:grid-cols-[repeat(3,220px)] md:gap-5 md:grid-cols-[repeat(3,190px)] sm:grid-cols-[repeat(2,200px)] 
         xs:grid-cols-[200px] ">
         {currentPosts.map((card:any)=>{
             return <CardMato key={Math.random()} {...card} ></CardMato >
         })}
         </div>
-        <div className="flex  justify-between mt-8 p-5 px-6 items-center">
+        <div className="flex justify-between p-3 px-6 items-center">
             <Image alt='' src={Robot}  className='w-[90px] h-[130px] ' ></Image>
             <Pagination 
            totalPosts={Cards.length}
