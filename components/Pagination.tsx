@@ -31,12 +31,12 @@ const Pagination:React.FC<props>=(props)=> {
     </div>
 {  props.currentPage>2 && <>
     { props.currentPage==pages.length && <>
-    <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `}  onClick={()=>Set(props.currentPage-2)} >
-        {props.currentPage-2}
-         </div> 
  <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `}  onClick={()=>Set(props.currentPage-3)}>
         {props.currentPage-3}
  </div>       
+    <div  className={`text-lg  border rounded-[10px] w-[35px] h-[35px] grid items-center justify-center cursor-pointer bg-[#FFFFFF] border-[#DDDDDD] `}  onClick={()=>Set(props.currentPage-2)} >
+        {props.currentPage-2}
+         </div> 
  </>
 }
 </>
