@@ -13,17 +13,17 @@ const AddMato:React.FC<props> = (props) => {
     <div className='mt-5 xs:mt-3' >
    
         <h1 className='text-[#33333] text-lg  xs:text-[16px] ' > Name</h1>
-        <input type="text" placeholder="First Name Here" className="w-full border border-[#D9D9D9] p-2 pl-3 mt-1 rounded-[8px] md:py-[6px] " />
+        <input type="text" placeholder="Name Here" className="w-full border border-[#D9D9D9] p-2 pl-3 mt-1 rounded-[8px] md:py-[6px] " />
     </div>
 
     <div className='mt-3 xs:mt-2' >
         <h1 className='text-[#33333] text-lg  xs:text-[16px]  ' >Type</h1>
-        <input type="text" placeholder="Last Name Here" className="w-full border border-[#D9D9D9] p-2 pl-3 mt-1 rounded-[8px] md:py-[6px] " />
+        <input type="text" placeholder="Type Here" className="w-full border border-[#D9D9D9] p-2 pl-3 mt-1 rounded-[8px] md:py-[6px] " />
     </div>
 
     <div className='mt-3 xs:mt-2 mb-5 xs:mb-3 ' >
         <h1 className='text-[#33333] text-lg  xs:text-[16px]  ' >Quantity</h1>
-        <input type="text" placeholder="Discord Id" className="w-full border border-[#D9D9D9] p-2 pl-3 mt-1 rounded-[8px] md:py-[6px] " />
+        <input type="text" placeholder="Qte here" className="w-full border border-[#D9D9D9] p-2 pl-3 mt-1 rounded-[8px] md:py-[6px] " />
     </div>
 
     <button  className="bg-[#3069FE] text-white p-[10px] w-[160px] rounded-[10px] self-end md:rounded-[8px] md:p-2 md:w-[140px] xs:w-[120px] xs:p-[6px] xs:text-sm xs:rounded-[5px]  " >Add Member</button>

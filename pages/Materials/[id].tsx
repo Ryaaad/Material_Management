@@ -8,17 +8,15 @@ import { MdEdit } from "react-icons/md";
 
 import Link from 'next/link';
 import CardMMB from "@/components/CardMMB";
-// interface props{
-//     memberId :number,
-//     firstName:string,
-//     lastName:string,
-//     img:string,
-//     discord:string,
-//     Tel:string,
-// }
-const Id
-// :React.FC<props> 
-= () => {
+import { useRouter } from "next/router";
+
+const Id= () => {
+    let   router = useRouter();
+    let name = router.query["name"];
+    let type = router.query["type"];
+    let lastName = router.query["lastName"];
+    let img = router.query["img"];
+    let qte = router.query["qte"];
     return (  
     <>
    <Navbar Element='Mato'></Navbar> 
@@ -29,10 +27,10 @@ const Id
         </Link>
         <Image alt="" src={User}  className='rounded-full h-[250px] w-[250px]  ' ></Image>
 
-        <h1  className="text-[#5F6368] text-xl uppercase " >Arduino</h1>
+        <h1  className="text-[#5F6368] text-xl uppercase " >{name}</h1>
         <div className="flex  justify-center w-full mx-auto items-center gap-8 ">
         <h3 className=" text-[#5F6368] md:text-[15px] "> Items lended : <span className='text-[#ff0008] font-semibold' > 2 </span></h3>
-          <h3 className=" text-[#5F6368] md:text-[15px]"> Items Total :  <span  className='text-[#00805a] font-semibold ' > 15 </span>  </h3>
+          <h3 className=" text-[#5F6368] md:text-[15px]"> Items Total :  <span  className='text-[#00805a] font-semibold ' > {qte} </span>  </h3>
           
             <div>
             

@@ -2,8 +2,8 @@ import Search from '../../public/Search.png'
 import Bg from '../../public/MaterialBg.png'
 import Image from 'next/image'
 import Robot from '../../public/Robot2.png'
-import Robot1 from '../../public/Robot.png'
-import Robot2 from '../../public/Robot_login.png'
+import Robot2 from '../../public/Robot.png'
+import Robo3t from '../../public/Robot_login.png'
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { BiChevronUp,BiChevronDown } from "react-icons/bi";
@@ -15,6 +15,8 @@ const Material = () => {
     const [FilterClicked, setFilterClicked] = useState(false)
     const [Add, setAdd] = useState(false)
     const [inputValue, setInputValue] = useState<any>();
+    const Rob=[Robot,Robot2,Robo3t]
+    const [Img, setImg] = useState(Robot)
     const FirstCards=[
             {
             name :'arduino Nano',
@@ -204,6 +206,10 @@ const Material = () => {
     const lastPostIndex = currentPage * postsPerPage;
     const firstPostIndex = lastPostIndex - postsPerPage;
     const currentPosts = Cards.slice(firstPostIndex, lastPostIndex);    
+    useEffect(()=>{
+
+        setImg(Rob[Math.floor(Math.random() * (2 - 0 + 1))])
+         },[currentPage])
     return ( 
     <>
     <Navbar Element='Mato'></Navbar> 
@@ -241,7 +247,7 @@ const Material = () => {
         })}
         </div>
         <div className="flex justify-between p-3 px-6 items-center">
-            <Image alt='' src={Robot}  className='w-[90px] h-[130px] ' ></Image>
+            <Image alt='' src={Img}  className='w-[90px] h-[130px] ' ></Image>
             <Pagination 
            totalPosts={Cards.length}
            postsPerPage={postsPerPage}

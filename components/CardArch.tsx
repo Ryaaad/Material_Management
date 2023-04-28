@@ -18,12 +18,6 @@ const CardArch:React.FC<props> = (props) => {
           <h3 className=" text-[#1976D2] text-sm md:text-[12px] text-start w-full font-semibold ">Date : {props.Date} </h3>
           <h3 className={`  ${props.Returned ? 'text-[green]' : 'text-[red]'} text-[15px] md:text-[12px] text-start  w-full font-semibold mt-2  `}>{props.Returned ? 'Returned' : 'Not Returned'} </h3>
           </div>
-       
-      
-          {/* <Link href={`/Material/${props.Id}`}>    
-          <button  className='border-white border-[2px] rounded-[2px] p-2 px-3 text-[#3069FE] text-sm font-semibold hover:bg-[#1976d228] hover:text-black duration-500 ' >View details </button>
-            </Link> */}
-       
         </div>
      );
 }

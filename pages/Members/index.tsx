@@ -2,6 +2,8 @@ import Search from '../../public/Search.png'
 import Bg from '../../public/MemberBg.png'
 import Image from 'next/image'
 import Robot from '../../public/Robot2.png'
+import Robot2 from '../../public/Robot.png'
+import Robo3t from '../../public/Robot_login.png'
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { BiChevronUp,BiChevronDown } from "react-icons/bi";
@@ -12,6 +14,8 @@ import AddMember from '@/components/AddMember'
 // import { useQuery, useMutation } from '@tanstack/react-query/';
 const Member = () => {
     const [FilterClicked, setFilterClicked] = useState<any>(false)
+    const Rob=[Robot,Robot2,Robo3t]
+    const [Img, setImg] = useState(Robot)
     const [Add, setAdd] = useState(false)
     const ClickHandel=()=>{
         setFilterClicked((prev: boolean)=>prev=!prev)
@@ -825,7 +829,10 @@ const FirstCards=[
       setCards(filterCards)}
       else setCards(FirstCards)
     }, [inputValue])
-    
+    useEffect(()=>{
+
+   setImg(Rob[Math.floor(Math.random() * (2 - 0 + 1))])
+    },[currentPage])
     return ( 
         <>
         <Navbar Element='MMB'></Navbar> 
@@ -863,7 +870,7 @@ const FirstCards=[
             })}
             </div>
             <div className="flex  justify-between  p-3 px-6 items-center">
-                <Image alt='' src={Robot}  className='w-[90px] h-[130px] ' ></Image>
+                <Image alt='' src={Img}  className='w-[90px] h-[130px] ' ></Image>
                 <Pagination 
                totalPosts={Cards.length}
                postsPerPage={postsPerPage}
