@@ -5,12 +5,12 @@ import Robot from '../../public/Robot2.png'
 import Robot2 from '../../public/Robot.png'
 import Robo3t from '../../public/Robot_login.png'
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/shared/Navbar';
 import { BiChevronUp,BiChevronDown } from "react-icons/bi";
 import { useEffect, useState } from 'react';
-import CardMato from '@/components/CardMato';
-import Pagination from '@/components/Pagination';
-import AddMato from '@/components/AddMato'
+import CardMato from '@/components/Materials/CardMato';
+import Pagination from '@/components/shared/Pagination';
+import AddMato from '@/components/Materials/AddMato'
 const Material = () => {
     const [FilterClicked, setFilterClicked] = useState(false)
     const [Add, setAdd] = useState(false)

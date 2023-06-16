@@ -1,4 +1,4 @@
-import MC from '../public/MC_LOGO.png'
+import MC from '../../public/MC_LOGO.png'
 import Image from 'next/image'
 import Link from 'next/link';
 

@@ -1,4 +1,4 @@
-import Esp32 from '../public/Esp32.jpg'
+import Esp32 from '../../public/Esp32.jpg'
 import Image from 'next/image'
 interface props{
     Id :number,

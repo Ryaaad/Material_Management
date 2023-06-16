@@ -1,4 +1,4 @@
-import User from '../public/User.png'
+import User from '../../public/User.png'
 import Image from 'next/image'
 import Link from 'next/link';
 import { SiDiscord } from "react-icons/si";

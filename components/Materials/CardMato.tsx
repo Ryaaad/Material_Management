@@ -1,4 +1,4 @@
-import Esp32 from '../public/Esp32.jpg'
+import Esp32 from '../../public/Esp32.jpg'
 import Image from 'next/image'
 import Link from 'next/link';
 import { ParsedUrlQueryInput } from 'querystring';

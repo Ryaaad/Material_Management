@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/shared/Navbar";
 import User from '../../public/User.png'
 import Image from 'next/image'
 import { HiArrowLeft } from "react-icons/hi";
@@ -7,7 +7,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdEdit } from "react-icons/md";
 
 import Link from 'next/link';
-import CardMMB from "@/components/CardMMB";
+import CardMMB from "@/components/Members/CardMMB";
 import { useRouter } from "next/router";
 
 const Id= () => {

@@ -5,13 +5,13 @@ import Robot from '../../public/Robot2.png'
 import Robot2 from '../../public/Robot.png'
 import Robo3t from '../../public/Robot_login.png'
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/shared/Navbar';
 import { BiChevronUp,BiChevronDown } from "react-icons/bi";
 import { useEffect, useState } from 'react';
-import CardMMB from '@/components/CardMMB';
-import Pagination from '@/components/Pagination';
-import AddArchive from '@/components/AddArchive';
-import CardArch from '@/components/CardArch';
+import CardMMB from '@/components/Members/CardMMB';
+import Pagination from '@/components/shared/Pagination';
+import AddArchive from '@/components/Archives/AddArchive';
+import CardArch from '@/components/Archives/CardArch';
 // import { useQuery, useMutation } from '@tanstack/react-query/';
 
 const Archive = () => {
